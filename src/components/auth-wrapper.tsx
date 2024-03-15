@@ -1,10 +1,10 @@
-import { gql, useQuery } from "@apollo/client";
-import { LoadingState } from "./loading-state";
-import { useNavigate } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 import React from "react";
-import { ME_QUERY, Me } from "../queries/me-query";
+import { useNavigate } from "react-router-dom";
 import { useAuthMe } from "../contexts/me-context";
 import { isDefined } from "../helpers/is-defined";
+import { ME_QUERY, Me } from "../queries/me-query";
+import { LoadingState } from "./loading-state";
 
 type AuthWrapperProps = {
   children?: React.ReactNode;
