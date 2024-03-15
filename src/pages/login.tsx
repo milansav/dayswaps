@@ -10,19 +10,7 @@ import { DayswapsAnchor } from "../components/dayswaps/dayswaps-anchor";
 import { DayswapsInputLabel } from "../components/dayswaps/dayswaps-input-label";
 import { DayswapsInput } from "../components/dayswaps/dayswaps-input";
 import { DayswapsSpan } from "../components/dayswaps/dayswaps-span";
-
-const LOGIN_QUERY = gql`
-  mutation Mutation($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
-      token
-    }
-  }
-`;
-
-type LoginFormValues = {
-  username: string;
-  password: string;
-};
+import { LOGIN_QUERY, LoginFormValues } from "../queries/login-query";
 
 const DayswapsLogoBar = styled.div`
   display: flex;
