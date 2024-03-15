@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { isDefined } from "../helpers/is-defined";
 import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
@@ -106,10 +106,12 @@ export const Login = () => {
           flexDirection: "column",
         }}
       >
+        {/*NOTE: Fun fact the logo actually isn't properly centered at https://app.dayswaps.com/login */}
         <DayswapsLogoBar>
           <Logo />
         </DayswapsLogoBar>
-        <div style={{ margin: "4rem 0" }} />
+        <div style={{ margin: "5rem 0" }} />
+        {/* NOTE: Too many unnecessary divs */}
         <div
           style={{
             width: "100%",
@@ -163,10 +165,7 @@ export const Login = () => {
               }}
             >
               <div>
-                <DayswapsInputLabel
-                  style={{ color: "#000920", display: "block" }}
-                  htmlFor="username"
-                >
+                <DayswapsInputLabel htmlFor="username">
                   E-mail
                 </DayswapsInputLabel>
                 <DayswapsInput
@@ -176,10 +175,7 @@ export const Login = () => {
                 />
               </div>
               <div>
-                <DayswapsInputLabel
-                  style={{ color: "#000920", display: "block" }}
-                  htmlFor="password"
-                >
+                <DayswapsInputLabel htmlFor="password">
                   Password
                 </DayswapsInputLabel>
                 <DayswapsInput

@@ -22,7 +22,7 @@ export const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
 
   const [me, setMe] = useAuthMe();
 
-  // TODO: Create type safe wrapper for useQuery
+  // NOTE: Creating a type safe wrapper for useQuery would be handy
   const { loading } = useQuery<Me>(ME_QUERY, {
     onCompleted: (data) => {
       if (!isDefined(data) || !isDefined(data.me)) return navigate("/login");

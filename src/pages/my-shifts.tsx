@@ -105,6 +105,9 @@ export const MyShifts = () => {
     <LoadingState loading={loading} onLoading={<p>loading..</p>}>
       <PageLayout>
         <PageTitle>My Shifts</PageTitle>
+        {/* NOTE: This could've been probably replaced with just a month selector. 
+        End and Start date would've been picked in onSubmit like:
+        `ISO2RFC3339(getFirstDay(theDateWithSelectedMonth).toISOString())` */}
         <DateFilterWrapper>
           <div>
             <DayswapsInputLabel htmlFor="start">
