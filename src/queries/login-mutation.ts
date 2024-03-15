@@ -8,7 +8,11 @@ export const LOGIN_QUERY = gql`
   }
 `;
 
-export type LoginFormValues = {
+export type LoginFormProps = {
   username: string;
   password: string;
+};
+
+export type LoginReturnValue = {
+  token: string;
 };

@@ -10,7 +10,11 @@ import { DayswapsAnchor } from "../components/dayswaps/dayswaps-anchor";
 import { DayswapsInputLabel } from "../components/dayswaps/dayswaps-input-label";
 import { DayswapsInput } from "../components/dayswaps/dayswaps-input";
 import { DayswapsSpan } from "../components/dayswaps/dayswaps-span";
-import { LOGIN_QUERY, LoginFormValues } from "../queries/login-query";
+import {
+  LOGIN_QUERY,
+  LoginFormProps,
+  LoginReturnValue,
+} from "../queries/login-mutation";
 
 const DayswapsLogoBar = styled.div`
   display: flex;
@@ -62,20 +66,23 @@ const DayswapsLoginFooter: React.FC = () => (
 );
 
 export const Login = () => {
-  const { register, handleSubmit } = useForm<LoginFormValues>();
+  const { register, handleSubmit } = useForm<LoginFormProps>();
 
-  const [loginMutation] = useMutation(LOGIN_QUERY);
+  const [loginMutation] = useMutation<
+    { login: LoginReturnValue },
+    LoginFormProps
+  >(LOGIN_QUERY);
 
   const navigate = useNavigate();
 
-  const onSubmit = async (data: LoginFormValues) => {
+  const onSubmit = async (data: LoginFormProps) => {
     const variables = data;
     const result = await loginMutation({ variables });
 
     if (
       !isDefined(result) ||
       !isDefined(result.data) ||
-      !isDefined(result.data.login)
+      !isDefined(result.data?.login)
     )
       return;
 
