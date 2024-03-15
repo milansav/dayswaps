@@ -25,10 +25,12 @@ export const Me = () => {
             ? `Tel: ${telephone}`
             : "Uživatel nemá přiřazené telefonní číslo."}
         </p>
-        <DayswapsButton onClick={() => navigate("shifts")}>
-          Moje směny
-        </DayswapsButton>
-        <LogoutButton />
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <DayswapsButton onClick={() => navigate("shifts")}>
+            Moje směny
+          </DayswapsButton>
+          <LogoutButton />
+        </div>
       </div>
     </PageLayout>
   );
